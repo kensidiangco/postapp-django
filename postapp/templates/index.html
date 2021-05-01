@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'index.css'%}">
+</head>
+<body>
+	<div class="app__nav">
+		<li class="nav__link"><a href="{% url 'post'%}"><img class="icon" src="{% static 'KENETHSMILE.png'%}"></a></li>
+		<li class="nav__link" onclick="openForm()" style="cursor: pointer;">Make post</li>
+		<li class="nav__link"><a href="{% url 'about'%}">About</a></li>
+	</div>
+	<div class="content">
+		<div class="form__card" id="form__card"> <p onclick="closeany()" style="float: right; cursor: pointer;">X</p>
+			<form class="post__form" method="POST" enctype="multipart/form-data">
+				{%csrf_token%}
+				
+				{{form.nickname}}
+				{{form.post_text}}
+				{{form.image}}
+				<button type="submit" class="submit__post">Post</button><br />
+			</form>
+		</div>
+	</div>
+	{% block content %}
+	{% endblock %}
+	<script type="text/javascript" src="{% static 'index.js' %}"></script>
+</body>
+</html>

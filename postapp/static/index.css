@@ -1,0 +1,131 @@
+* {	
+	margin: 0;
+	font-family: helvetica;
+	background-color: #FAFAFA;
+}
+.content {
+	margin: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: 1s;
+}
+.nav__link {
+	display: inline-block;
+	font-weight: bold;
+}
+a {
+	text-decoration: none;
+	color: black;
+	margin: 10px;
+}
+.form__card {
+	display: none;
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	top: 20px;
+	align-items: center;
+	width: 350px;
+	padding: 10px;
+	border: 1px solid gray;
+	border-radius: 8px;
+	transition: 1s;
+}
+form {
+	text-align: center;
+}
+.nickname, .post_text {
+	margin: 5px;
+	padding: 10px;
+	border: 1px solid #555555;
+	border-radius: 5px;
+	outline-color: tomato;
+	transition: .5s;
+}
+.nickname:focus, .post_text:focus {
+	outline-color: lightgreen;
+}
+.submit__post {
+	padding: 10px;
+	width: 100%;
+	background-color: #f1f1f1;
+	border: none;
+	cursor: pointer;
+	outline-color: lightgreen;
+	transition: .2s;
+	margin-top: 5px;
+	background-color: #DADBDD;
+	color: #555555;
+}
+.submit__post:hover {
+	color: blue;
+}
+.app__post {
+	margin-top: -40px;
+	display: flex;
+	flex-direction: column-reverse;
+	flex-wrap: wrap;
+	padding: 30px;
+	align-items: center;
+	transition: 1s;
+}
+@media only screen and (max-width: 468) {
+	.post {
+		background-color: white;
+		border: 1px solid lightgray;
+		border-radius: 5px;
+		margin-bottom: 15px;
+		width: 100%;
+		transition: .5s;
+		max-width: 800px;
+	}
+	.app__nav {
+		padding: 10px;
+		display: flex;
+		justify-content: space-between;
+		margin-left: 200px;
+		margin-right: 200px;
+		align-items: center;
+	}
+}
+@media only screen and (min-width: 469px) {
+	.post {
+		background-color: white;
+		border: 1px solid lightgray;
+		border-radius: 5px;
+		margin-bottom: 15px;
+		width: 100%;
+		transition: .5s;
+		max-width: 500px;
+	}
+	.app__nav {
+		padding: 10px;
+		display: flex;
+		justify-content: space-between;
+		margin-left: 100px;
+		margin-right: 100px;
+		align-items: center;
+	} 	 
+}
+.user, .text {
+	margin-left: 10px;
+	padding: 5px;
+}
+.user {
+	font-weight: bold;
+	font-size: 15px;
+}
+.image {
+	width: 100%;
+	object-fit: contain;
+	border-top: 1px solid lightgray;
+	border-bottom: 1px solid lightgray;
+}
+.text {
+	font-size: 14px;
+}
+.icon {
+	width: 50px;
+	object-fit: contain;
+}
