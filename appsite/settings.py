@@ -133,6 +133,7 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'postapp/images')
 MEDIA_URL = '/media/'
+LOGIN_URL = 'postapp/login'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

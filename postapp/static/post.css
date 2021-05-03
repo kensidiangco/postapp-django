@@ -1,0 +1,119 @@
+.post__content {
+	margin: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: 1s;
+}
+.post__nickname, .post_text {
+	margin: 5px;
+	padding: 10px;
+	border: 1px solid #555555;
+	border-radius: 5px;
+	outline-color: tomato;
+	transition: .5s;
+}
+.post__nickname:focus, .post_text:focus {
+	outline-color: lightgreen;
+}
+.submit__post {
+	padding: 10px;
+	width: 100%;
+	border: none;
+	cursor: pointer;
+	outline-color: lightgreen;
+	transition: .2s;
+	margin-top: 5px;
+	color: #555555;
+	background-color: #DBDBDB;
+}
+.submit__post:hover {
+	color: blue;
+}
+.app__post {
+	display: flex;
+	flex-direction: column-reverse;
+	flex-wrap: wrap;
+	align-items: center;
+	transition: 1s;
+	background-color: white;
+}
+.content {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	transition: 1s;
+	background-color: #FAFAFA
+}
+@media only screen and (max-width: 468) {
+	.post {
+		border: 1px solid lightgray;
+		border-radius: 5px;
+		margin-bottom: 15px;
+		width: 100%;
+		transition: .5s;
+		max-width: 800px;
+	}
+	.app__nav {
+		padding: 10px;
+		display: flex;
+		justify-content: space-between;
+		margin-left: 200px;
+		margin-right: 200px;
+		align-items: center;
+	}
+}
+@media only screen and (min-width: 469px) {
+	.post {
+		border: 1px solid lightgray;
+		border-radius: 5px;
+		margin-bottom: 15px;
+		width: 100%;
+		transition: .5s;
+		max-width: 500px;
+	}
+	.app__nav {
+		padding: 10px;
+		display: flex;
+		justify-content: space-between;
+		margin-left: 100px;
+		margin-right: 100px;
+		align-items: center;
+	} 	 
+}
+.post__user, .post__text {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 4px;
+	padding-bottom: 10px;
+	align-items: center;
+}
+.post__user {
+	font-weight: bold;
+	font-size: 15px;
+}
+.post__image {
+	width: 100%;
+	object-fit: contain;
+	border-top: 1px solid lightgray;
+	border-bottom: 1px solid lightgray;
+}
+.post__text {
+	display: flex;
+	flex-wrap: wrap;
+	word-wrap: break-word;
+	word-break: break-all;
+	white-space: normal;
+	font-size: 14px;
+	justify-content: space-between;
+	align-items: center;
+}
+#likeBTN, #unlikeBTN {
+	border: none;
+	color: blue;
+	background-color: white;
+	padding: 5px;
+	cursor: pointer;
+}

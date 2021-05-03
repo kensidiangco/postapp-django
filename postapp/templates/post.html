@@ -1,25 +1,70 @@
 {% extends 'index.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Posts</title>
-<body>
 	{% block content %}
-	<div class="content">
+	<link rel="stylesheet" type="text/css" href="{% static 'comment.css' %}">
+
+	<div class="post__content">
 		<div class="app__post" onclick="closeany()">
 			{% for post in posts %}
 			<div class="post">
-				<p class="user"><img src="#"> {{post.nickname}}</p>
-				{% if post.image == '' %}
-				{% else %}
-				<img class="image" src="media/{{post.image}}" width="500px">
-				{% endif %}
-				<p class="text"><img src="#"> {{post.nickname}} {{post.post_text}}</p>
+				<div class="post__section">
+					<p class="post__user">{{post.postedBy}}</p>
+					{% if post.image == '' %}
+					{% else %}
+					<img class="post__image" src="media/{{post.image}}">
+					{% endif %}
+					<div class="post__text">
+						<p><b>{{post.postedBy}}</b> {{post.post_text}}</p>
+						{% if post.likes.count < 1 %}
+						<p></p>
+						{% elif post.likes.count == 1 %}
+						<p>{{post.likes.count}} like</p>
+						{% elif post.likes.count > 1 %}
+						<p>{{post.likes.count}} likes</p>
+						{%endif%}
+						<div>
+						</div>
+						<div class="likers__button">
+							{% if request.user not in post.likes.all %}
+							<form method="POST">{% csrf_token %}
+								<select name="post" style="display: none;">
+									<option>{{post.id}}</option>
+								</select>
+								<button type="submit" id="likeBTN" name="likeBTN" style="margin-right: -2px;" >Like</button>
+							</form>
+							{% else %}
+							<form method="POST">{% csrf_token %}
+								<select name="post" style="display: none;">
+									<option>{{post.id}}</option>
+								</select>
+								<button type="submit" id='unlikeBTN' name="unlikeBTN">Unlike</button>
+							</form>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+
+				<div class="comment__section">
+				{% for comment in comments %}
+					{% if comment.post.id == post.id %}
+						<p><b>{{comment.user}}</b> {{ comment.comment }}</p>
+					{% endif %}
+				{% endfor %}
+				</div>
+
+				<div class="comment__form">
+					<form method="POST">
+						{% csrf_token %}
+						{{commentForm.comment}}
+						<select name="post" style="display: none;">
+							<option>{{post.id}}</option>
+						</select>
+						<button type="submit" id="commentBTN" name="commentBTN">Post</button>
+					</form>
+				</div>
+
 			</div>
 			{% endfor %}
 		</div>
 	</div>
 	{% endblock %}
-</body>
-</html>
