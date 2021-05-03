@@ -150,5 +150,5 @@ Thumbs.db
 # profiling data
 .prof
 
-
+appsite/postapp/images
 # End of https://www.toptal.com/developers/gitignore/api/python
